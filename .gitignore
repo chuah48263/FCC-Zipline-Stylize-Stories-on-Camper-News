@@ -2,3 +2,4 @@ vendor/
 temp/
 Trash/
 .localized
+.DS_Store
