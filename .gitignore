@@ -1,5 +1,6 @@
 vendor/
 temp/
+fonts/
 Trash/
 .localized
 .DS_Store

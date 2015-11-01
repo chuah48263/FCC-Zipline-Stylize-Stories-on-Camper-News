@@ -5,14 +5,67 @@
   <meta charset="UTF-8" />
   <title>FCC Zipline: Stylize Stories on Camper News</title>
   <link href="css/vendor/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
   <link href="css/main.css" rel="stylesheet" type="text/css" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 </head>
 
 <body ng-app="app" ng-controller="MainController">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <!-- <span class="sr-only">Toggle navigation</span> -->
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">FCC Camper News</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <form class="navbar-form navbar-right col-visible-sm col-visible-xs" role="search">
+            <div class="form-group">
+              <input type="input" class="form-control" id="search" placeholder="Search..." ng-model="search" />
+            </div>
+          </form>
+          <form class="navbar-form navbar-right" role="sortBy">
+            <div class="form-group">
+              <select class="form-control" id="select" ng-model="sortBy">
+                <option value="None" selected>-- Sort by --</option>
+                <option value="-timePosted">Date</option>
+                <option value="-rank">Upvotes</option>
+                <option value="headline">Title</option>
+              </select>
+            </div>
+          </form>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="row">
+    <div class="container">
+      <div class="col-sm-12 col-xs-12 col-md-3 col-lg-3" ng-repeat="story in stories | filter:search | orderBy:sortBy">
+        <div class="thumbnail">
+          <a ng-href="{{story.link}}"><img class="image" ng-src="{{story.image}}" ng-attr-title="{{story.metaDescription}}" alt="" /></a>
+          <div class="caption">
+            <a class="headline" ng-href="{{story.link}}" ng-attr-title="{{story.metaDescription}}">{{story.headline}}</a>
+            <p class="username">By <a ng-href="http://www.freecodecamp.com/{{story.author.username}}">@{{story.author.username}}</a></p>
+            <p class="date">Posted on {{story.timePosted | date:'EEE, dd MMM yyyy'}}</p>
+            <a ng-href="http://www.freecodecamp.com/{{story.author.username}}" ng-attr-title="@{{story.author.username}}"><img class="picture" ng-src="{{story.author.picture}}" alt="" /></a>
+            <p class="upVotes" ng-attr-title="{{story.upVoted}}">
+              <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> &nbsp;{{story.rank}}
+            </p>
+            <!-- <p><a ng-href="{{story.link}}" class="btn btn-default" role="button">Discuss</a></p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Vendors -->
   <script src="js/vendor/angular.min.js"></script>
   <script src="js/vendor/jquery-2.1.4.min.js"></script>
+  <script src="js/vendor/bootstrap.js"></script>
   <!-- Modules -->
   <script src="js/app.js"></script>
   <!-- Controllers -->

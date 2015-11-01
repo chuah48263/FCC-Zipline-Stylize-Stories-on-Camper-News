@@ -1,1 +1,95 @@
+body {
+  background-color: #614789;
+  font-family: 'Open Sans', sans-serif;
+}
 
+.navbar {
+  margin-bottom: 10px;
+  background-color: #222222;
+  border-color: transparent;
+}
+
+.navbar-header > a {
+  text-decoration: none;
+  font-size: 28px;
+  color: #EEEEEE !important;
+}
+
+.navbar-brand {
+  margin-right: auto;
+  margin-bottom: auto;
+}
+
+.navbar-collapse {
+  border-color: transparent !important;
+}
+
+.navbar-form {
+  margin-right: auto;
+  margin-left: auto;
+  /*margin-top: 0;
+  margin-bottom: 0;*/
+  border-color: transparent !important;
+}
+
+.form-control {
+  background-color: #DDDDDD;
+}
+
+.row {
+  margin: auto;
+}
+
+.image {
+  padding: 0;
+  margin: auto;
+}
+
+@media (min-width:992px) {
+  a > .image {
+    height: 206.25px !important;
+    width: auto;
+    object-fit: scale-down;
+  }
+}
+
+a > .image {}
+
+.picture {
+  height: auto;
+  width: auto;
+  max-height: 55px;
+  max-width: 55px;
+  margin-left: 0 !important;
+}
+
+a > .picture {
+  min-width: 55px;
+  min-height: 55px;
+  float: right;
+  margin-top: -35px !important;
+}
+
+.col-md-3,
+.col-lg-3 {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.thumbnail {
+  padding: 0;
+  margin-bottom: 10px;
+  background-color: #EEEEEE;
+  border-color: transparent;
+  border: 0;
+  border-radius: 0;
+}
+
+.username,
+.date {
+  margin-bottom: 0;
+}
+
+.upVotes {
+  margin-bottom: 0;
+}
